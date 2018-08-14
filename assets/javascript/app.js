@@ -22,7 +22,7 @@ $(document).on("click", ".gif-btn", function () {
             var gifStill = results[i].images.fixed_height_still.url;
 
             var gifDiv = $("<div>");
-            var p = $("<p>").text("Rating: " + results[i].rating);
+            var p = $(`<p class="gifRating">`).text("Rating: " + results[i].rating.toUpperCase());
             var gifImage = $("<img>")
             gifImage.attr({
                 "src": gifStill,
@@ -55,6 +55,8 @@ function renderButtons() {
     for (var i = 0; i < gifTopics.length; i++) {
         var a = $("<button>");
         a.addClass("gif-btn");
+        a.addClass("btn");
+        a.addClass("btn-primary");
         a.attr("data-name", gifTopics[i]);
         a.text(gifTopics[i]);
         $("#buttons-view").append(a);
